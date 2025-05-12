@@ -1,0 +1,8 @@
+clusterName: YOUR_CLUSTER_NAME
+clusterEndpoint: YOUR_CLUSTER_ENDPOINT
+aws:
+  defaultInstanceProfile: KarpenterNodeInstanceProfile-YOUR_CLUSTER_NAME
+  interruptionQueueName: karpenter-interruption-queue
+serviceAccount:
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::<ACCOUNT_ID>:role/karpenter-controller-YOUR_CLUSTER_NAME
