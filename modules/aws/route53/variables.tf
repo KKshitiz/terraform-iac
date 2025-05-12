@@ -39,8 +39,8 @@ variable "records" {
 
 variable "alias_records" {
   type = list(object({
-    name    = string
-    type    = string
+    name = string
+    type = string
     alias = object({
       name                   = string
       zone_id                = string

@@ -8,7 +8,7 @@ resource "aws_route53_zone" "main" {
     }
   }
 
- 
+
 }
 
 resource "aws_route53_record" "records" {

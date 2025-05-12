@@ -28,9 +28,9 @@ resource "aws_iam_role" "eks_cluster" {
       }
     ]
   })
-  
+
   tags = {
-    Name        = "${var.environment}-eks-cluster-role"
+    Name = "${var.environment}-eks-cluster-role"
   }
 }
 resource "aws_iam_role" "cluster_autoscaler" {
@@ -53,11 +53,11 @@ resource "aws_iam_role" "cluster_autoscaler" {
       }
     ]
   })
-  
+
   tags = {
-    Name        = "${var.environment}-cluster-autoscaler-role"
-    }
-  
+    Name = "${var.environment}-cluster-autoscaler-role"
+  }
+
   depends_on = [aws_iam_openid_connect_provider.eks]
 }
 
@@ -203,7 +203,7 @@ resource "aws_eks_node_group" "on_demand" {
   }
 
   tags = {
-    Name        = "${var.environment}-${var.project_name}-on-demand-node-group"
+    Name = "${var.environment}-${var.project_name}-on-demand-node-group"
   }
 
   depends_on = [
@@ -235,7 +235,7 @@ resource "aws_eks_node_group" "spot" {
   }
 
   tags = {
-    Name        = "${var.environment}-${var.project_name}-spot-node-group"
+    Name = "${var.environment}-${var.project_name}-spot-node-group"
   }
 
   depends_on = [

@@ -25,9 +25,9 @@ variable "eks_nodes_security_group_id" {
 
 variable "on_demand_node_group_config" {
   type = object({
-    desired_size = number
-    min_size     = number
-    max_size     = number
+    desired_size   = number
+    min_size       = number
+    max_size       = number
     instance_types = list(string)
   })
   description = "On-demand node group configuration"
@@ -35,9 +35,9 @@ variable "on_demand_node_group_config" {
 
 variable "spot_node_group_config" {
   type = object({
-    desired_size = number
-    min_size     = number
-    max_size     = number
+    desired_size   = number
+    min_size       = number
+    max_size       = number
     instance_types = list(string)
   })
   description = "Spot node group configuration"

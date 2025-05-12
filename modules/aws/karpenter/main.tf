@@ -39,7 +39,7 @@ resource "aws_iam_role" "karpenter_node" {
   assume_role_policy = jsonencode({
     Version = "2012-10-17",
     Statement = [{
-      Effect    = "Allow",
+      Effect = "Allow",
       Principal = {
         Service = "ec2.amazonaws.com"
       },
@@ -71,18 +71,18 @@ resource "aws_iam_instance_profile" "karpenter_node" {
 }
 
 resource "helm_release" "karpenter" {
-  name       = "karpenter"
-  namespace  = "karpenter"
-  repository = "https://charts.karpenter.sh"
-  chart      = "karpenter"
-  version    = var.chart_version
+  name             = "karpenter"
+  namespace        = "karpenter"
+  repository       = "https://charts.karpenter.sh"
+  chart            = "karpenter"
+  version          = var.chart_version
   create_namespace = true
 
   values = [templatefile("${path.module}/karpenter-values.yaml", {
-    cluster_name              = var.cluster_name
-    cluster_endpoint          = data.aws_eks_cluster.this.endpoint
-    karpenter_iam_role_arn    = aws_iam_role.karpenter_controller.arn
-    default_instance_profile  = aws_iam_instance_profile.karpenter_node.name
-    account_id                = data.aws_caller_identity.current.account_id
+    cluster_name             = var.cluster_name
+    cluster_endpoint         = data.aws_eks_cluster.this.endpoint
+    karpenter_iam_role_arn   = aws_iam_role.karpenter_controller.arn
+    default_instance_profile = aws_iam_instance_profile.karpenter_node.name
+    account_id               = data.aws_caller_identity.current.account_id
   })]
 }

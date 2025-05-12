@@ -42,7 +42,7 @@ resource "aws_ecr_repository_policy" "policy" {
   for_each = aws_ecr_repository.repos
 
   repository = each.value.name
-  policy     = jsonencode({
+  policy = jsonencode({
     Version = "2012-10-17"
     Statement = [
       {

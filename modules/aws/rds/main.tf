@@ -42,7 +42,7 @@ resource "aws_security_group" "rds" {
   }
 
   tags = {
-    Name        = "${var.environment}-rds"
+    Name = "${var.environment}-rds"
   }
 }
 
@@ -51,7 +51,7 @@ resource "aws_db_subnet_group" "aurora_subnet_group" {
   subnet_ids = var.private_subnets
 
   tags = {
-    Name        = "${var.environment}-aurora-db-subnet-group"
+    Name = "${var.environment}-aurora-db-subnet-group"
   }
 }
 
@@ -61,7 +61,7 @@ resource "aws_secretsmanager_secret" "db_master_credentials" {
   name = "${var.environment}-${var.project_name}-rds-master-credentials"
 
   tags = {
-    Type        = "master"
+    Type = "master"
   }
 }
 
